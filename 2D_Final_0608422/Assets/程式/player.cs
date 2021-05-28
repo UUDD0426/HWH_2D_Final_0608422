@@ -2,7 +2,7 @@
 using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Header("移動速度"), Range(0, 300)]
     public float speed = 10.5f;
@@ -21,8 +21,8 @@ public class player : MonoBehaviour
     [Header("血量")]
     public float hp = 200;
     private float hpMax;
-   // [Header("血量系統")]
-   // public HpManager hpManager;
+    [Header("血量系統")]
+    public HpManager hpManager;
     [Header("攻擊力"), Range(0, 1000)]
     public float attack = 20;
     private bool isDead = false;
@@ -48,7 +48,7 @@ public class player : MonoBehaviour
         
 
     }
-    /* public void Attack()
+     public void Attack()
      {
          if (isDead) return;                  //如果死亡就跳出
          //音效來源,撥放一次(音效片段,音量)
@@ -60,8 +60,8 @@ public class player : MonoBehaviour
          //如果 碰到物件存在 並且 碰到的物件 標籤 為道具 就取得道具腳本並呼叫掉落道具方法
           if (hit && hit.collider.tag == "敵人") hit.collider.GetComponent<Enemy>().Hit(attack + attackWeapon);
 
-     }*/
-   /* public void Hit(float damage)
+     }
+    public void Hit(float damage)
     {
         hp -= damage;                        //扣除傷害值
         hpManager.UpdateHpBar(hp, hpMax);     //更新血條
@@ -76,13 +76,13 @@ public class player : MonoBehaviour
     }
     private void Replay()
     {
-        SceneManager.LoadScene("遊戲場景");
-    }*/
+        SceneManager.LoadScene("0528");
+    }
     void Start()
     {
         hpMax = hp;
     }
-    //public float attackWeapon;
+    public float attackWeapon;
 
     void Update()
     {
